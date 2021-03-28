@@ -1,0 +1,5 @@
+IoT custom authoriser function that will allow for a username & password to connect instead of an x509 certificate.
+
+Using mosquitto to present username & password it appears that lambda function will not be invoked at all, however when making use of cURL or another HTTP based client, the invocation occurs. Seems to suggest some odd way of handling username/password authentication when making use of MQTT.
+
+Another issue noted when making use of the AWS SDKs is that very specific ALPN protocol headers must be supplied when attempting to use MQTT & custom authorisation. As seen here (https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html) we need to supply the header 'mqtt' however both javascript and python SDKs will default to 'x-amzn-mqtt-ca' when attempting to use MQTT as the protocol, with no apparent option on setting the headers used available. No issues at all when using a WSS connection. Will continue to build out a potential solution using Paho, and then try to replicate it in the SDKs.

@@ -1,0 +1,1 @@
+Lambda function testing redirects as well as setting of authorization cookies with API Gateway

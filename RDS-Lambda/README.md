@@ -1,0 +1,1 @@
+Lambda function for testing RDS connectivity. Will throw an error if connection not possible & display a simple connection ID once connected. Useful for testing any network connectivity issues when running Lambda from inside a VPC to a private RDS instance.

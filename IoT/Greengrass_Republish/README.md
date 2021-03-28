@@ -1,0 +1,1 @@
+Template for a Lambda function to be placed on a Greengrass core device. This function will republish all messages it receives to a specified topic. Needs valid subscription from core to cloud & from devices to core to function correctly

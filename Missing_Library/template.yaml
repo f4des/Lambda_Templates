@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Missing_Library
+
+  Sample SAM Template for Missing_Library
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 20
+
+Resources:
+  MissingLibrary:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: hello-world/
+      Handler: app.handler
+      Runtime: nodejs12.x
+      Layers: 
+        - arn:aws:lambda:us-east-1:524387336408:layer:gdal32-al2:1
+        - !Ref libs
+
+  libs:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: blank-nodejs-lib
+      Description: Dependencies for ogr.
+      ContentUri: libs/
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  MissingLibrary:
+    Description: "Lambda Function ARN"
+    Value: !GetAtt MissingLibrary.Arn
+  MissingLibraryIamRole:
+    Description: "Implicit IAM Role created for function"
+    Value: !GetAtt MissingLibraryRole.Arn

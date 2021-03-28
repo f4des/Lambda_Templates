@@ -1,0 +1,1 @@
+Sample SAM application & function demonstrating how to include custom libraries in the event that they are not included by default or that the linux image in use by Lambda for some reason does not have them where the linux image used for EC2 does.
