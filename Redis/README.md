@@ -1,1 +1,1 @@
-Lambda function for testing redis connectivity. Will display the IP of the Redis instance as perceived from the Lambda before attempting to open a connection to the cluster. If connection successful at a socket then will attempt to connect using a redis client.
+Lambda function for testing redis connectivity. Will display the IP of the Redis instance as perceived from the Lambda before attempting to open a connection to the cluster. If connection successful at a socket level then will attempt to connect using a redis client.
