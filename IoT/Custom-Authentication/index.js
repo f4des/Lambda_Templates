@@ -9,7 +9,6 @@ exports.lambdaHandler =  async (event, context, callback) => {
     console.log(pwd);
     var buff = new Buffer(pwd, 'base64');
     var passwd = buff.toString('ascii');
-    sleep.sleep(5)
     switch (passwd) { 
         case 'test': 
             callback(null, generateAuthResponse(passwd, 'Allow')); 
